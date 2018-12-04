@@ -6,6 +6,12 @@ try:
 except ImportError:
     # Fallback to pure python if not available
     from StringIO import StringIO
+except ImportError:
+    # Support for Python 3 "faster version"
+    from io import BytesIO as StringIO
+except ImportError:
+    # Fallback for Python 3
+    from io import StringIO
 
 
 # Paramiko imports
