@@ -30,7 +30,7 @@ from gittle import utils
 __all__ = ('Gittle',)
 
 
-# Guarantee that a diretory exists
+# Guarantee that a directory exists
 def mkdir_safe(path):
     if path and not(os.path.exists(path)):
         os.makedirs(path)
@@ -95,7 +95,8 @@ class Gittle(object):
     PATTERN_MODIFIED = (True, True)
 
     # Permissions
-    MODE_DIRECTORY = 040000  # Used to tell if a tree entry is a directory
+    # TODO: This should be refined to use an is directory test of some type vs. the unix octal permission string for 'd---------'
+    MODE_DIRECTORY = 0o40000  # Used to tell if a tree entry is a directory
 
     # Tree depth
     MAX_TREE_DEPTH = 1000
